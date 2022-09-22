@@ -16,9 +16,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    lintOptions {
+
+    buildFeatures {
+        viewBinding true
+        dataBinding = true
+    }
+
+
+    lint {
         disable 'RestrictedApi'
     }
+    namespace 'com.cleanup.todoc'
 }
 
 dependencies {
@@ -30,4 +38,13 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.google.android.material:material:1.4.0'
+
+    //ROOM
+    implementation "androidx.room:room-runtime:2.3.0"
+    annotationProcessor "androidx.room:room-compiler:2.3.0"
+    //VIEW MODEL & LIVE DATA
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    // TESTING
+    androidTestImplementation 'androidx.arch.core:core-testing:2.1.0'
+
 }

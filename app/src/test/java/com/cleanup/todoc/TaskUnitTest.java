@@ -1,6 +1,6 @@
 package com.cleanup.todoc;
 
-import com.cleanup.todoc.model.Task;
+import com.cleanup.todoc.models.Task;
 
 import org.junit.Test;
 
@@ -15,7 +15,6 @@ import static org.junit.Assert.assertSame;
 /**
  * Unit tests for tasks
  *
- * @author Gaëtan HERFRAY
  */
 public class TaskUnitTest {
     @Test

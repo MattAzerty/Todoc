@@ -16,4 +16,11 @@
     <string name="task_name_hint">Nom de la tâche</string>
 
     <string name="empty_task_name">Le nom de la tâche doit être renseigné</string>
+
+
+    <string-array name="category_array">
+        <item>Projet1</item>
+        <item>Projet2</item>
+        <item>Projet3</item>
+    </string-array>
 </resources>
