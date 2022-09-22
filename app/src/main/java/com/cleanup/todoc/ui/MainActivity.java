@@ -101,8 +101,8 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.List
         } else if (id == R.id.filter_recent_first) {
             sortMethod = SortMethod.RECENT_FIRST;
         }
-
-        //updateTasks();
+//Ask for an update on the list
+        getTasks();
 
         return super.onOptionsItemSelected(item);
     }
@@ -155,33 +155,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.List
         this.tasksViewModel.updateTask(task);
     }
 
-    /*
-    //Updates the list of tasks in the UI
-    private void updateTasks() {
-        if (tasks.size() == 0) {
-            lblNoTasks.setVisibility(View.VISIBLE);
-            listTasks.setVisibility(View.GONE);
-        } else {
-            lblNoTasks.setVisibility(View.GONE);
-            listTasks.setVisibility(View.VISIBLE);
-            switch (sortMethod) {
-                case ALPHABETICAL:
-                    Collections.sort(tasks, new Task.TaskAZComparator());
-                    break;
-                case ALPHABETICAL_INVERTED:
-                    Collections.sort(tasks, new Task.TaskZAComparator());
-                    break;
-                case RECENT_FIRST:
-                    Collections.sort(tasks, new Task.TaskRecentComparator());
-                    break;
-                case OLD_FIRST:
-                    Collections.sort(tasks, new Task.TaskOldComparator());
-                    break;
 
-            }
-            adapter.updateTasks(tasks);
-        }
-    }*/
 
     // -------------------
     // UI
@@ -227,8 +201,31 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.List
 
     // Update the list of Task
     private void updateTaskList(List<Task> tasks) {
-        this.adapter.updateData(tasks);
+
+        if (tasks.size() == 0) {
+            mActivityMainBinding.lblNoTask.setVisibility(View.VISIBLE);
+            mActivityMainBinding.listTasks.setVisibility(View.GONE);
+        } else {
+            mActivityMainBinding.lblNoTask.setVisibility(View.GONE);
+            mActivityMainBinding.listTasks.setVisibility(View.VISIBLE);
+            switch (sortMethod) {
+                case ALPHABETICAL:
+                    Collections.sort(tasks, new Task.TaskAZComparator());
+                    break;
+                case ALPHABETICAL_INVERTED:
+                    Collections.sort(tasks, new Task.TaskZAComparator());
+                    break;
+                case RECENT_FIRST:
+                    Collections.sort(tasks, new Task.TaskRecentComparator());
+                    break;
+                case OLD_FIRST:
+                    Collections.sort(tasks, new Task.TaskOldComparator());
+                    break;
+
+            }
+            this.adapter.updateData(tasks);
     }
+        }
 
     // Update the list of project
     private void updateProjectList(List<Project> projects) {
