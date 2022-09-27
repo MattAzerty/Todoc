@@ -37,7 +37,7 @@ public class Task {
      @param creationTimestamp the timestamp when the task has been created to set
      */
 
-    public Task() { }//TODO why?
+    public Task() { } //Constructor empty for database implementation
 
     public Task(long projectId, @NonNull String name, long creationTimestamp) {
         this.projectId = projectId;

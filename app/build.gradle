@@ -1,6 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\magui\\Documents\\DossierTemp\\apkKEY.jks')
+            storePassword 'includes'
+            keyAlias 'key0'
+            keyPassword 'includes'
+        }
+        release {
+            storeFile file('C:\\Users\\magui\\Documents\\DossierTemp\\apkKEY.jks')
+            keyAlias 'key0'
+            storePassword 'includes'
+            keyPassword 'includes'
+        }
+    }
     compileSdkVersion 31
     defaultConfig {
         applicationId "com.cleanup.todoc"
@@ -9,10 +23,19 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
     }
     buildTypes {
         release {
-            minifyEnabled false
+            // Enables code shrinking, obfuscation, and optimization for only
+            // your project's release build type.
+            minifyEnabled true
+            // Enables resource shrinking, which is performed by the
+            // Android Gradle plugin.
+            shrinkResources true
+            // Includes the default ProGuard rules files that are packaged with
+            // the Android Gradle plugin. To learn more, go to the section about
+            // R8 configuration files. (Customize which code to keep in case of bugs after shrinking).
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
