@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.List
 
     // Delete an item
     private void deleteTask(Task task) {
-        this.tasksViewModel.deleteItem(task.getId());
+        this.tasksViewModel.deleteTask(task.getId());
     }
 
     // Update an item (selected or not)

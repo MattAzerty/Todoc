@@ -56,7 +56,7 @@ public class TasksViewModel extends ViewModel {
 
     }
 
-    public void deleteItem(long itemId) {
+    public void deleteTask(long itemId) {
         executor.execute(() -> taskDataSource.deleteTask(itemId));
     }
 
